@@ -177,6 +177,28 @@ php artisan biblioteca:reporte
 
 ## Base de datos
 
+### Conexion
+
+La app usa PostgreSQL en [Neon](https://neon.tech). Configurar las siguientes variables en el archivo `.env`:
+
+```env
+DB_CONNECTION=pgsql
+DB_HOST=ep-icy-rain-aqr9qsr9-pooler.c-8.us-east-1.aws.neon.tech
+DB_PORT=5432
+DB_DATABASE=neondb
+DB_USERNAME=neondb_owner
+DB_PASSWORD=npg_3NTke1ZMmQJB
+DB_SSLMODE=require
+```
+
+El esquema `biblioteca` se crea automaticamente al correr las migraciones:
+
+```bash
+php artisan migrate
+```
+
+### Esquema
+
 Esquema `biblioteca` en PostgreSQL (Neon).
 
 | Tabla | Descripcion |
