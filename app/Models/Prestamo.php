@@ -22,9 +22,9 @@ class Prestamo extends Model
     ];
 
     protected $casts = [
-        'fecha_prestamo'            => 'date',
+        'fecha_prestamo' => 'date',
         'fecha_devolucion_estimada' => 'date',
-        'fecha_devolucion_real'     => 'date',
+        'fecha_devolucion_real' => 'date',
     ];
 
     public function getVencidoAttribute(): bool

@@ -15,12 +15,12 @@ return new class extends Migration
             $table->primary(['id_autor', 'id_libros']);
 
             $table->foreign('id_autor')
-                  ->references('id')->on('autores')
-                  ->onDelete('cascade');
+                ->references('id')->on('autores')
+                ->onDelete('cascade');
 
             $table->foreign('id_libros')
-                  ->references('id')->on('libros')
-                  ->onDelete('cascade');
+                ->references('id')->on('libros')
+                ->onDelete('cascade');
         });
     }
 

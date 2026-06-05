@@ -36,8 +36,8 @@ class Autor extends Model
             'id_autor',
             'id_libros'
         )
-        ->using(AutorLibro::class)
-        ->withPivot('orden_autor')
-        ->orderByPivot('orden_autor');
+            ->using(AutorLibro::class)
+            ->withPivot('orden_autor')
+            ->orderByPivot('orden_autor');
     }
 }

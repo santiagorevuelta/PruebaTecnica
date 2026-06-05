@@ -6,9 +6,12 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Libro extends Model
 {
+    use SoftDeletes;
+
     public $timestamps = false;
 
     protected $table = 'libros';
@@ -23,9 +26,9 @@ class Libro extends Model
     ];
 
     protected $casts = [
-        'year_publicacion'  => 'integer',
-        'numero_paginas'    => 'integer',
-        'stock_disponible'  => 'integer',
+        'year_publicacion' => 'integer',
+        'numero_paginas' => 'integer',
+        'stock_disponible' => 'integer',
     ];
 
     public function getDisponibleAttribute(): bool
@@ -59,9 +62,9 @@ class Libro extends Model
             'id_libros',
             'id_autor'
         )
-        ->using(AutorLibro::class)
-        ->withPivot('orden_autor')
-        ->orderByPivot('orden_autor');
+            ->using(AutorLibro::class)
+            ->withPivot('orden_autor')
+            ->orderByPivot('orden_autor');
     }
 
     public function prestamos(): HasMany
